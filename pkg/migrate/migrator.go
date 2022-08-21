@@ -4,6 +4,7 @@ package migrate
 import (
 	"gohub/pkg/console"
 	"gohub/pkg/database"
+	"gohub/pkg/file"
 	"os"
 
 	"gorm.io/gorm"
@@ -49,7 +50,6 @@ func (migrator *Migrator) createMigrationsTable() {
 
 // Up 执行所有未迁移过的文件
 func (migrator *Migrator) Up() {
-
 	// 读取所有迁移文件，确保按照时间排序
 	migrateFiles := migrator.readAllMigrationFiles()
 
@@ -97,7 +97,6 @@ func (migrator *Migrator) getBatch() int {
 
 // 从文件目录读取文件，保证正确的时间排序
 func (migrator *Migrator) readAllMigrationFiles() []MigrationFile {
-
 	// 读取 database/migrations/ 目录下的所有文件
 	// 默认是会按照文件名称进行排序
 	files, err := os.ReadDir(migrator.Folder)
