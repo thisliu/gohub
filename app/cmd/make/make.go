@@ -131,3 +131,11 @@ func createFileFromStub(filePath string, stubName string, model Model, variables
 	// 提示成功
 	console.Success(fmt.Sprintf("[%s] created.", filePath))
 }
+
+func init() {
+	// 注册 make 的子命令
+	CmdMake.AddCommand(
+		CmdMakeCMD,
+		CmdMakeModel,
+	)
+}
