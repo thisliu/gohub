@@ -11,7 +11,6 @@ type CategoryRequest struct {
 }
 
 func CategorySave(data interface{}, c *gin.Context) map[string][]string {
-
 	rules := govalidator.MapData{
 		"name":        []string{"required", "min_cn:2", "max_cn:8", "not_exists:categories,name"},
 		"description": []string{"min_cn:3", "max_cn:255"},
