@@ -53,6 +53,7 @@ func main() {
 		cmd.CmdTestCommand,
 		cmd.CmdMigrate,
 		cmd.CmdDBSeed,
+		cmd.CmdCache,
 	)
 
 	// 配置默认运行 Web 服务
